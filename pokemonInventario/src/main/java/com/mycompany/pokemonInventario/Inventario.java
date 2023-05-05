@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.mavenproject1;
+package com.mycompany.pokemonInventario;
 
 import java.util.ArrayList;
 /**
@@ -10,32 +10,43 @@ import java.util.ArrayList;
  * @author Sala-2-11-PC14
  */
 public class Inventario {
-    private int capacidad;
-    private ArrayList<Interactuables> listaObjetos;
+    protected int capacidad;
+    protected ArrayList<Interactuables> listaObjetos;
     
     public Inventario(int capacidad, ArrayList<Interactuables> listaObjetos) {
         this.capacidad = capacidad;
         this.listaObjetos = listaObjetos;
     }
     
-    public Inventario(){
+    public void agregarItem(Interactuables item) {
+        if(capacidad > listaObjetos.size()) {
+            System.out.print("No queda espacio en el inventario.");
+        }
+        
+        else {
+            listaObjetos.add(item);
+        }
+    }
+    
+    public Interactuables obtenerObjeto(Interactuables Item) {
+        
+        for(i = 0; i < listaObjetos.size(); i++){
+            Interactuables O = listaObjetos.get(i);
+            if(Item.getIdObjeto().equals(O.getIdObjeto()) == 0) {
+                return listaObjetos.get(i);
+            }
+        }
+        
+        return null;
     }
 
-    public int getCapacidad() {
-        return capacidad;
+    
+    public void actualizarObjeto(Interactuables nuevoItem, int indice){
+        listaObjetos.set(indice,nuevoItem);
     }
-
-    public ArrayList<Interactuables> getListaObjetos() {
-        return listaObjetos;
+    
+    public void borrarItem(int indice) {
+        listaObjetos.remove(indice);
     }
-
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
-
-    public void setListaObjetos(ArrayList<Interactuables> listaObjetos) {
-        this.listaObjetos = listaObjetos;
-    }
-
-
+    
 }
