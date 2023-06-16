@@ -28,17 +28,15 @@ public class Inventario {
         }
     }
     
-    public Interactuables obtenerObjeto(Interactuables Item) {
-        
-        for(i = 0; i < listaObjetos.size(); i++){
-            Interactuables O = listaObjetos.get(i);
-            if(Item.getIdObjeto().equals(O.getIdObjeto()) == 0) {
-                return listaObjetos.get(i);
-            }
+public Interactuables obtenerObjeto(Interactuables Item) {
+    for (int i = 0; i < listaObjetos.size(); i++) {
+        Interactuables O = listaObjetos.get(i);
+        if (Item.getIdObjeto() == O.getIdObjeto()) {
+            return O;
         }
-        
-        return null;
     }
+    return null;
+}
 
     
     public void actualizarObjeto(Interactuables nuevoItem, int indice){

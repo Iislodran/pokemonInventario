@@ -4,6 +4,8 @@
  */
 package com.mycompany.pokemonInventario;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sala-2-11-PC14
